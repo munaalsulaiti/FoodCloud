@@ -1,5 +1,6 @@
 
 # Import necessary libraries
+import os
 import torch
 import torch.nn as nn
 import torchvision.transforms as transforms
@@ -53,7 +54,7 @@ model.classifier = nn.Sequential(
 )
 
 # Load the saved model weights from solution.pth, ignoring classifier mismatches
-checkpoint_path = "./solution.pth"  # Assuming solution.pth is in the current directory
+checkpoint_path = os.path.join(".", "solution.pth")  # Assuming solution.pth is in the current directory
 
 # Load the state_dict, but ignore the classifier layers (as they have different dimensions)
 state_dict = torch.load(checkpoint_path, map_location=device)
